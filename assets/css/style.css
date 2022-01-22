@@ -1,0 +1,22 @@
+
+.profile img {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	border: 10px solid #FFF;
+	margin: auto;
+	display: block;
+
+}
+
+.profile h2 {
+	text-align: center;
+	font-family: sigmar one;
+	font-size: 20px;
+}
+
+.profile h3 {
+	text-align: center;
+	font-family: candara;
+	font-size: 15px;
+}
