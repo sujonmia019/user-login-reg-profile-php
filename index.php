@@ -20,7 +20,10 @@
 			$userEmail = $_POST['username_email'];
 			$password = $_POST['password'];
 			if (empty($userEmail) || empty($password)) {
-				echo 'The field is required.';
+				$msg = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+						All field is required.
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>';
 			}
 			else{
 				$sql = "SELECT * FROM students WHERE username = '$userEmail' AND pass ='$password' OR email = '$userEmail' AND pass='$password'";
@@ -35,7 +38,10 @@
 					header('location:profile.php');
 				}
 				else{
-					echo 'username or password is wrong.';
+					$msg = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+						username or password id wrong.
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>';
 				}
 			}
 		}
@@ -47,6 +53,12 @@
 				<h2 class="card-title">Sign In</h2>
 			</div>
 			<div class="card-body">
+				<?php
+					if(isset($msg)){
+						echo $msg;
+					}
+				?>
+
 				<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 
 					<div class="mb-3">
@@ -70,5 +82,6 @@
 		</div>
 	</div>
 	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
